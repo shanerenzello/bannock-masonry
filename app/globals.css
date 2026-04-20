@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brick-red: #8D2618;
-  --color-terracotta: #9E3926;
+  --color-brick-red: #C0531C;
+  --color-terracotta: #D4622A;
   --color-garnet: #6F130C;
   --color-driftwood: #96856B;
   --color-sand: #BBAA92;
-  --color-slate: #4C4C4A;
-  --color-charcoal: #232420;
+  --color-slate: #5C5C5A;
+  --color-charcoal: #2D2D2D;
+  --color-cream: #F9F5F0;
 
   --font-serif: var(--font-playfair), "Georgia", serif;
   --font-sans: var(--font-inter), "Helvetica Neue", sans-serif;
@@ -15,8 +16,9 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: #fff;
+  background-color: var(--color-cream);
   color: var(--color-charcoal);
+  line-height: 1.7;
 }
 
 h1, h2, h3, h4 {

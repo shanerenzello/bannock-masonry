@@ -4,7 +4,7 @@ import { BUSINESS_NAME, PHONE, PHONE_HREF, FACEBOOK_URL } from "@/lib/constants"
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-garnet text-sand py-8">
+    <footer className="bg-charcoal text-sand py-10">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col items-center gap-3 mb-6">
           <Image
@@ -29,7 +29,7 @@ export default function Footer() {
             Facebook
           </a>
         </div>
-        <p className="text-center text-sand/50 text-xs">
+        <p className="text-center text-sand/40 text-xs">
           © {year} {BUSINESS_NAME}
         </p>
       </div>

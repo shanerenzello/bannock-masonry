@@ -2,7 +2,7 @@ import { BUSINESS_NAME } from "@/lib/constants";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-24 bg-white">
       <div className="max-w-4xl mx-auto px-4 text-center">
         <p className="text-brick-red uppercase tracking-widest text-sm font-semibold mb-3">
           About Us

@@ -2,9 +2,9 @@ import { SERVICES } from "@/lib/constants";
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-sand/20">
+    <section id="services" className="py-24 bg-cream">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-14">
           <p className="text-brick-red uppercase tracking-widest text-sm font-semibold mb-3">
             What We Do
           </p>
@@ -17,7 +17,7 @@ export default function Services() {
           {SERVICES.map((service) => (
             <div
               key={service.id}
-              className="bg-white rounded-lg p-6 shadow-sm border border-sand/40 hover:shadow-md transition-shadow"
+              className="bg-white rounded-2xl p-7 shadow-md border border-sand/30 hover:shadow-lg transition-shadow"
             >
               <div className="text-4xl mb-4">{service.icon}</div>
               <h3 className="text-lg font-bold text-charcoal mb-2">
