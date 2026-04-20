@@ -15,9 +15,9 @@ function formatDate(iso: string) {
 
 export default async function DashboardPage() {
   const submissions = await getSubmissions();
-  const redisConfigured =
-    !!process.env.UPSTASH_REDIS_REST_URL &&
-    !!process.env.UPSTASH_REDIS_REST_TOKEN;
+  const supabaseConfigured =
+    !!process.env.SUPABASE_URL &&
+    !!process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   return (
     <div className="min-h-screen bg-sand/10">
@@ -50,13 +50,12 @@ export default async function DashboardPage() {
           {submissions.length} submission{submissions.length !== 1 ? "s" : ""}
         </p>
 
-        {!redisConfigured && (
+        {!supabaseConfigured && (
           <div className="bg-yellow-50 border border-yellow-300 text-yellow-800 rounded-lg p-4 mb-6 text-sm">
             <strong>Storage not configured.</strong> Add{" "}
-            <code>UPSTASH_REDIS_REST_URL</code> and{" "}
-            <code>UPSTASH_REDIS_REST_TOKEN</code> to your{" "}
-            <code>.env.local</code> to save submissions here. Quote request
-            emails still send normally.
+            <code>SUPABASE_URL</code> and{" "}
+            <code>SUPABASE_SERVICE_ROLE_KEY</code> to your{" "}
+            <code>.env.local</code> to save submissions here.
           </div>
         )}
 

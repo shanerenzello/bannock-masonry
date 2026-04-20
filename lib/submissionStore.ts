@@ -1,21 +1,10 @@
-import { Redis } from "@upstash/redis";
+import { createClient } from "@supabase/supabase-js";
 
-let redis: Redis | null = null;
-
-function getRedis(): Redis | null {
-  if (
-    !process.env.UPSTASH_REDIS_REST_URL ||
-    !process.env.UPSTASH_REDIS_REST_TOKEN
-  ) {
-    return null;
-  }
-  if (!redis) {
-    redis = new Redis({
-      url: process.env.UPSTASH_REDIS_REST_URL,
-      token: process.env.UPSTASH_REDIS_REST_TOKEN,
-    });
-  }
-  return redis;
+function getSupabase() {
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) return null;
+  return createClient(url, key);
 }
 
 export interface Submission {
@@ -30,21 +19,30 @@ export interface Submission {
 export async function saveSubmission(
   data: Omit<Submission, "id" | "createdAt">
 ): Promise<void> {
-  const r = getRedis();
-  if (!r) return;
-  const submission: Submission = {
-    ...data,
-    id: crypto.randomUUID(),
-    createdAt: new Date().toISOString(),
-  };
-  await r.lpush("bannock:submissions", JSON.stringify(submission));
+  const supabase = getSupabase();
+  if (!supabase) return;
+  await supabase.from("submissions").insert({
+    name: data.name,
+    email: data.email,
+    message: data.message,
+    ip: data.ip,
+  });
 }
 
 export async function getSubmissions(): Promise<Submission[]> {
-  const r = getRedis();
-  if (!r) return [];
-  const items = await r.lrange<string>("bannock:submissions", 0, -1);
-  return items.map((item) =>
-    typeof item === "string" ? JSON.parse(item) : item
-  );
+  const supabase = getSupabase();
+  if (!supabase) return [];
+  const { data } = await supabase
+    .from("submissions")
+    .select("*")
+    .order("created_at", { ascending: false });
+  if (!data) return [];
+  return data.map((row) => ({
+    id: row.id,
+    name: row.name,
+    email: row.email,
+    message: row.message,
+    ip: row.ip,
+    createdAt: row.created_at,
+  }));
 }
