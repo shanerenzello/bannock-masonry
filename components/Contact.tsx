@@ -34,7 +34,7 @@ export default function Contact() {
             Request a Free Quote
           </h2>
           <p className="text-slate">
-            Or call us directly at{" "}
+            Or text/call us directly at{" "}
             <a href={PHONE_HREF} className="text-brick-red underline hover:text-terracotta">
               {PHONE}
             </a>
