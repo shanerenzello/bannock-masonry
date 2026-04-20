@@ -78,14 +78,31 @@ export default function Contact() {
               </div>
 
               <div>
+                <label htmlFor="phone" className="block text-charcoal text-sm font-medium mb-1">
+                  Phone Number
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  maxLength={30}
+                  className="w-full bg-cream border border-sand text-charcoal placeholder-slate/50 rounded-xl px-4 py-2.5 focus:outline-none focus:border-brick-red transition-colors"
+                  placeholder="(208) 555-0000"
+                />
+                {state.fieldErrors?.phone && (
+                  <p className="text-red-500 text-xs mt-1">{state.fieldErrors.phone[0]}</p>
+                )}
+              </div>
+
+              <div>
                 <label htmlFor="email" className="block text-charcoal text-sm font-medium mb-1">
-                  Email
+                  Email <span className="text-slate/60 font-normal">(optional)</span>
                 </label>
                 <input
                   id="email"
                   name="email"
                   type="email"
-                  required
                   className="w-full bg-cream border border-sand text-charcoal placeholder-slate/50 rounded-xl px-4 py-2.5 focus:outline-none focus:border-brick-red transition-colors"
                   placeholder="you@example.com"
                 />

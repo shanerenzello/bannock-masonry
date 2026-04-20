@@ -30,6 +30,7 @@ export async function submitContact(
   // Validate
   const raw = {
     name: formData.get("name"),
+    phone: formData.get("phone"),
     email: formData.get("email"),
     message: formData.get("message"),
   };
@@ -41,9 +42,9 @@ export async function submitContact(
     };
   }
 
-  const { name, email, message } = result.data;
+  const { name, phone, email, message } = result.data;
 
-  await saveSubmission({ name, email, message, ip });
+  await saveSubmission({ name, phone, email, message, ip });
 
   return { status: "success", message: "Thanks! We'll be in touch soon." };
 }

@@ -74,11 +74,19 @@ export default async function DashboardPage() {
                   <div>
                     <p className="font-bold text-charcoal text-lg">{s.name}</p>
                     <a
-                      href={`mailto:${s.email}`}
-                      className="text-brick-red hover:underline text-sm"
+                      href={`tel:${s.phone}`}
+                      className="text-brick-red hover:underline text-sm block"
                     >
-                      {s.email}
+                      {s.phone}
                     </a>
+                    {s.email && (
+                      <a
+                        href={`mailto:${s.email}`}
+                        className="text-slate hover:underline text-sm block"
+                      >
+                        {s.email}
+                      </a>
+                    )}
                   </div>
                   <p className="text-slate text-xs whitespace-nowrap">
                     {formatDate(s.createdAt)}

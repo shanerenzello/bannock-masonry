@@ -10,7 +10,8 @@ function getSupabase() {
 export interface Submission {
   id: string;
   name: string;
-  email: string;
+  phone: string;
+  email?: string;
   message: string;
   ip: string;
   createdAt: string;
@@ -23,7 +24,8 @@ export async function saveSubmission(
   if (!supabase) return;
   await supabase.from("submissions").insert({
     name: data.name,
-    email: data.email,
+    phone: data.phone,
+    email: data.email ?? null,
     message: data.message,
     ip: data.ip,
   });
@@ -40,6 +42,7 @@ export async function getSubmissions(): Promise<Submission[]> {
   return data.map((row) => ({
     id: row.id,
     name: row.name,
+    phone: row.phone,
     email: row.email,
     message: row.message,
     ip: row.ip,

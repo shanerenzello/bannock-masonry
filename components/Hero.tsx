@@ -4,14 +4,13 @@ import { PHONE, PHONE_HREF } from "@/lib/constants";
 export default function Hero() {
   return (
     <section className="bg-cream">
-      {/* Hero image */}
-      <div className="w-full relative">
+      {/* Hero image — aspect-ratio container prevents cropping */}
+      <div className="w-full aspect-[2/1] sm:aspect-[3/1] relative">
         <Image
           src="/images/hero/hero.jpg"
           alt="Bannock Stone and Brick Masonry — Idaho's Trusted Stonemasons"
-          width={1200}
-          height={400}
-          className="w-full object-cover max-h-80 sm:max-h-[420px]"
+          fill
+          className="object-contain"
           priority
         />
       </div>
