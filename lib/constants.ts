@@ -3,8 +3,8 @@ export const TAGLINE = "Idaho's Trusted Stonemasons";
 export const PHONE = "(208) 555-0198";
 export const PHONE_HREF = "tel:+12085550198";
 export const FACEBOOK_URL =
-  "https://www.facebook.com/people/Bannock-Stone-Brick-Masonry/61582336865340/";
-export const FACEBOOK_PAGE_ID = "61582336865340";
+  "https://www.facebook.com/profile.php?id=61556637376043";
+export const FACEBOOK_PAGE_ID = "61556637376043";
 
 export const SERVICES = [
   {
