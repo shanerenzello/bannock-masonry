@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PHONE, PHONE_HREF } from "@/lib/constants";
+import { PHONE, PHONE_HREF, PHONE_SMS } from "@/lib/constants";
 
 export default function Hero() {
   return (
@@ -32,10 +32,10 @@ export default function Hero() {
             Get a Free Quote
           </a>
           <a
-            href={PHONE_HREF}
+            href={PHONE_SMS}
             className="border-2 border-charcoal/30 text-charcoal hover:border-brick-red hover:text-brick-red font-semibold px-8 py-3 rounded-xl text-lg transition-colors"
           >
-            Call {PHONE}
+            Text {PHONE}
           </a>
         </div>
       </div>

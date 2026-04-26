@@ -2,6 +2,7 @@ export const BUSINESS_NAME = "Bannock Stone & Brick Masonry";
 export const TAGLINE = "Idaho's Trusted Stonemasons";
 export const PHONE = "(208) 747-6169";
 export const PHONE_HREF = "tel:+12087476169";
+export const PHONE_SMS = "sms:+12087476169";
 export const FACEBOOK_URL =
   "https://www.facebook.com/profile.php?id=61556637376043";
 export const FACEBOOK_PAGE_ID = "61556637376043";
